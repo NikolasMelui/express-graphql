@@ -11,7 +11,7 @@ const curSchema = buildSchema(`
 
 const root = {
 	hello: () => 'Hello, Rinat!',
-	number: () => 123 + 123,
+	number: () => 123 * 4,
 };
 
 const server = express();
@@ -26,3 +26,8 @@ server.use(
 );
 
 server.listen(3000, () => global.console.log(`Server is listening on port 3000`));
+
+// curl -X POST \
+// -H "Content-Type: application/json" \
+// -d '{"query": "{ hello }"}' \
+// http://localhost:4000/graphql
